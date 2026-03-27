@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="msapplication-TileColor" content="#0E0E0E">
-    <meta name="template-color" content="#0E0E0E">
+    <meta name="msapplication-TileColor" content="#073764">
+    <meta name="template-color" content="#073764">
     <meta name="description" content="@if(!empty($meta_title)){{ $meta_title }} @else {{config('app.name')}} @endif">
     <meta name="keywords" content="@if(!empty($meta_keywords)){{ $meta_keywords }} @else {{config('app.name')}} @endif">
     <meta name="author" content="">

@@ -262,6 +262,69 @@
 		}
 		
 	/* ctc	 */
+		.stats-section {
+			padding: 70px 0;
+			background: linear-gradient(180deg, #edf6ff 0%, #f8fcff 100%);
+		}
+
+		.stats-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 20px;
+		}
+
+		.stat-card {
+			background: #ffffff;
+			border: 1px solid #d9eafb;
+			border-radius: 18px;
+			padding: 28px 24px;
+			box-shadow: 0 14px 34px rgba(7, 55, 108, 0.1);
+			transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+		}
+
+		.stat-card:hover {
+			transform: translateY(-4px);
+			border-color: #b9dbfb;
+			box-shadow: 0 20px 42px rgba(7, 55, 108, 0.16);
+		}
+
+		.stat-number {
+			display: flex;
+			align-items: baseline;
+			gap: 4px;
+			font-size: 52px;
+			font-weight: 700;
+			line-height: 1;
+			color: #073764;
+		}
+
+		.stat-number sup {
+			top: 0;
+			font-size: 26px;
+			color: #0b73c0;
+		}
+
+		.stat-label {
+			margin-top: 12px;
+			font-size: 17px;
+			line-height: 1.6;
+			color: #355b84;
+		}
+
+		@media (max-width: 992px) {
+			.stats-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.stat-card {
+				padding: 22px 18px;
+			}
+
+			.stat-number {
+				font-size: 42px;
+			}
+		}
+
 		.cta-section {
 			padding: 0px 0;
 		}
@@ -644,16 +707,12 @@
 	@endsection('styles')
 
 	<main class="main page-wraper">
-	<section>
+	<section class="hero-palette">
 			<div>
 				@include('hero_section')
 			</div>
 		</section>
-		<section>
-			<div>
-				@include('capabilities_details')
-			</div>
-		</section>
+		
 
 		<section class="about-two">
 			<div class="auto-container">
@@ -716,38 +775,47 @@
 						</div>
 					</div>
 				</div>
-				<div class="row clearfix">
-					<div class="column col-lg-4 col-md-6 col-sm-12">
-						<div class="about-two-count count-box wow fadeInUp" data-wow-delay="150ms">
-							<div class="count-outer">
-								<span class="count-text" data-speed="3000" data-stop="30"></span>
-								<sup>+</sup>
-							</div>
-							<div class="texts scroll-fill">Trusted by Automotive Industry Leaders</div>
-						</div>
+			</div>
+		</section>
+
+		<section class="stats-section">
+			<div class="auto-container">
+				<div class="row mb-4">
+					<div class="col-lg-7">
+						<h3 class="fw-medium text-auto mb-2">Performance in Numbers</h3>
+						<p class="mb-0" style="color:#4b6b92;">A quick snapshot of our capability, delivery strength, and industry impact.</p>
 					</div>
-					<div class="column col-lg-4 col-md-6 col-sm-12">
-						<div class="about-two-count count-box wow fadeInUp" data-wow-delay="300ms">
-							<div class="count-outer">
-								<span class="count-text" data-speed="3000" data-stop="50"></span>
-								<sup>%</sup>
-							</div>
-							<div class="texts scroll-fill">Successful Automotive Projects Delivered</div>
+				</div>
+				<div class="stats-grid">
+					<div class="stat-card wow fadeInUp" data-wow-delay="100ms">
+						<div class="stat-number">
+							<span class="count-text" data-speed="3000" data-stop="30"></span>
+							<sup>+</sup>
 						</div>
+						<div class="stat-label">Trusted by Automotive Industry Leaders</div>
 					</div>
-					<div class="column col-lg-4 col-md-6 col-sm-12">
-						<div class="about-two-count count-box wow fadeInUp" data-wow-delay="450ms">
-							<div class="count-outer">
-								<span class="count-text" data-speed="3000" data-stop="25"></span>
-								<sup>+</sup>
-							</div>
-							<div class="texts scroll-fill">Years of Excellence in Automotive Innovation</div>
+					<div class="stat-card wow fadeInUp" data-wow-delay="220ms">
+						<div class="stat-number">
+							<span class="count-text" data-speed="3000" data-stop="50"></span>
+							<sup>%</sup>
 						</div>
+						<div class="stat-label">Successful Automotive Projects Delivered</div>
+					</div>
+					<div class="stat-card wow fadeInUp" data-wow-delay="340ms">
+						<div class="stat-number">
+							<span class="count-text" data-speed="3000" data-stop="25"></span>
+							<sup>+</sup>
+						</div>
+						<div class="stat-label">Years of Excellence in Automotive Innovation</div>
 					</div>
 				</div>
 			</div>
 		</section>
-
+		<section class="capability-palette">
+			<div>
+				@include('capabilities_details')
+			</div>
+		</section>
 		<section class="choose-section steps-one">
 			<div class="steps-one_circle" style="background-image: url('../../assets/images/circle.png')"></div>
 			<div class="auto-container">
@@ -856,7 +924,7 @@
 			</div>
 		</section>
 
-		<section>
+		<section class="case-studies-palette">
 			<div class="auto-container">
 				<div class="row">
 					<div class="col-lg-6">

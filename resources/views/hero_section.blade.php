@@ -1,20 +1,21 @@
 <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         :root {
             /* AUTO DYNAMICS — logo palette (primary references) */
-            --ad-blue: #0076C0;
-            --ad-blue-soft: #3d9ad4;
+            --ad-blue: #0b73c0;
+            --ad-blue-soft: #53caff;
             --ad-black: #1D1D1B;
-            --ad-red: #ED1C24;
+            --ad-red: #3ec6ff;
             --ad-white: #ffffff;
             --ad-gray: #d1d3d4;
-            --ad-gray-muted: rgba(209, 211, 212, 0.62);
+            --ad-gray-muted: rgba(223, 235, 248, 0.76);
             /* Rich blue-slate studio backdrop (logo #0076C0 family) */
-            --cad-bg: #121920;
-            --cad-bg-highlight: #2f3d50;
-            --cad-bg-top: #2a3848;
-            --cad-bg-mid: #1e2836;
-            --cad-bg-deep: #141b26;
-            --cad-bg-ink: #0c1018;
+            --cad-bg: #071a33;
+            --cad-bg-highlight: #15385f;
+            --cad-bg-top: #123257;
+            --cad-bg-mid: #0d2544;
+            --cad-bg-deep: #081b34;
+            --cad-bg-ink: #051224;
         }
 
         *,
@@ -39,12 +40,13 @@
             --bs-btn-color: #fff;
             --bs-btn-bg: var(--ad-blue);
             --bs-btn-border-color: var(--ad-blue);
-            --bs-btn-hover-bg: #0088d4;
-            --bs-btn-hover-border-color: #0088d4;
-            --bs-btn-active-bg: #0065a3;
-            --bs-btn-active-border-color: #0065a3;
+            --bs-btn-hover-bg: #1b96e0;
+            --bs-btn-hover-border-color: #1b96e0;
+            --bs-btn-active-bg: #085a95;
+            --bs-btn-active-border-color: #085a95;
             font-weight: 600;
             letter-spacing: 0.02em;
+            box-shadow: 0 12px 26px rgba(11, 115, 192, 0.35);
         }
 
         .text-ad-blue {
@@ -56,7 +58,7 @@
         }
 
         .text-ad-muted {
-            color: rgba(209, 211, 212, 0.55) !important;
+            color: rgba(215, 233, 250, 0.74) !important;
         }
 
         .hero-badge {
@@ -83,9 +85,9 @@
             z-index: 0;
             overflow: hidden;
             background:
-                radial-gradient(ellipse 75% 55% at 82% 36%, rgba(0, 118, 192, 0.09) 0%, rgba(0, 118, 192, 0.02) 42%, transparent 58%),
-                radial-gradient(ellipse 100% 55% at 50% 108%, rgba(0, 118, 192, 0.05) 0%, transparent 48%),
-                radial-gradient(ellipse 90% 80% at 12% 18%, rgba(100, 160, 210, 0.06) 0%, transparent 45%),
+                radial-gradient(ellipse 75% 55% at 82% 36%, rgba(62, 198, 255, 0.2) 0%, rgba(12, 91, 160, 0.08) 42%, transparent 58%),
+                radial-gradient(ellipse 100% 55% at 50% 108%, rgba(11, 115, 192, 0.12) 0%, transparent 48%),
+                radial-gradient(ellipse 90% 80% at 12% 18%, rgba(104, 183, 245, 0.11) 0%, transparent 45%),
                 linear-gradient(
                     152deg,
                     var(--cad-bg-highlight) 0%,
@@ -102,7 +104,7 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 95% 88% at 55% 42%, transparent 38%, rgba(6, 10, 18, 0.55) 100%),
+                radial-gradient(ellipse 95% 88% at 55% 42%, transparent 35%, rgba(4, 12, 24, 0.62) 100%),
                 linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 12%);
             pointer-events: none;
         }
@@ -186,8 +188,8 @@
         @media (max-width: 991.98px) {
             #ui-layer {
                 position: relative;
-                margin-top: var(--ad-mobile-canvas-h, min(42vh, 300px));
-                min-height: calc(100dvh - var(--ad-mobile-canvas-h, min(42vh, 300px)));
+                margin-top: var(--ad-mobile-canvas-h, min(26vh, 165px));
+                min-height: calc(100dvh - var(--ad-mobile-canvas-h, min(26vh, 165px)));
                 overflow-x: hidden;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
@@ -206,7 +208,7 @@
                 top: 0;
                 left: 0;
                 right: 0;
-                height: var(--ad-mobile-canvas-h, min(42vh, 300px));
+                height: var(--ad-mobile-canvas-h, min(26vh, 165px));
                 pointer-events: none;
                 z-index: 1;
             }
@@ -231,18 +233,7 @@
             }
         }
 
-        /* Logo red accent strip (matches brand banner) */
-        .hero-section-root::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--ad-red);
-            z-index: 30;
-            pointer-events: none;
-        }
+    
 
         .ui-main {
             pointer-events: auto;
@@ -329,19 +320,18 @@
                 <aside class="col-12 col-lg-5 ad-content-col order-2 order-lg-1 d-flex flex-column">
                     <main class="ui-main flex-grow-1 d-flex flex-column justify-content-lg-center">
                       
-                        <p class="hero-badge ui-badge text-ad-muted text-uppercase mb-2 mb-lg-3">Generative assembly</p>
+                        <p class="hero-badge ui-badge text-ad-muted text-uppercase mb-2 mb-lg-3">Advanced Lightweight Manufacturing</p>
                         <h1 class="ui-title ui-title-hero txt-shadow fw-light text-ad-white mb-0">
-                            <span class="d-block overflow-hidden"><span class="hero-line d-inline-block">Mastering</span></span>
-                            <span class="d-block overflow-hidden mt-1"><span class="hero-line d-inline-block fw-semibold text-ad-blue">weightlessness</span></span>
+
+                            <span class="d-block overflow-hidden mt-1"><span class="hero-line d-inline-block">Engineering Lightweight Excellence with German Precision</span></span>
                         </h1>
                         <p class="ui-lede txt-shadow mt-3 mt-lg-4 small fs-6 lh-lg text-ad-muted mb-0">
-                            Ultra-lightweight moulded components and cellular micro-structures—formed in real time in your browser.
+                            We manufacture interior, exterior, and under-bonnet components through advanced molding processes inspired by German engineering, delivering lightweight solutions that improve performance, efficiency, and durability.
                         </p>
                         <div class="ui-cta">
-                            <button type="button" class="btn btn-ad-primary">
-                                Discover the process
-                                <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                            </button>
+                            <a href="#" class="btn-contact d-inline-flex align-items-center gap-2">
+                                Explore Our Capabilities
+                            </a>
                         </div>
                     </main>
                 </aside>
@@ -394,11 +384,13 @@
         renderer.setClearColor(0x121920, 0);
         container.appendChild(renderer.domElement);
 
+        let isMobileView = false;
         function applyCanvasLayout() {
             const mobile = window.matchMedia('(max-width: 991.98px)').matches;
+            isMobileView = mobile;
             container.style.inset = '';
             if (mobile) {
-                const ch = Math.min(Math.round(window.innerHeight * 0.42), 300);
+                const ch = Math.min(Math.round(window.innerHeight * 0.26), 165);
                 container.style.height = `${ch}px`;
                 container.style.width = '100%';
                 container.style.position = 'absolute';
@@ -800,10 +792,11 @@
             controls.update();
 
             // Subtle floating of entire group
-            mainGroup.position.y = -0.5 + Math.sin(elapsedTime) * 0.1;
+            mainGroup.position.y = (isMobileView ? 1.15 : -0.5) + Math.sin(elapsedTime) * (isMobileView ? 0.035 : 0.1);
 
             camera.position.x += (mouseX * 1.5 - camera.position.x) * 0.05;
-            camera.position.y += (1 + mouseY * 1.5 - camera.position.y) * 0.05;
+            const targetCamY = isMobileView ? -0.45 : (1 + mouseY * 1.5);
+            camera.position.y += (targetCamY - camera.position.y) * 0.05;
             camera.lookAt(controls.target);
 
             renderer.render(scene, camera);

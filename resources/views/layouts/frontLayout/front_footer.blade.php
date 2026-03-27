@@ -1,5 +1,12 @@
 <style>
-    
+    .copyright-text a {
+        color: #8dd6ff !important;
+        transition: color 0.25s ease;
+    }
+
+    .copyright-text a:hover {
+        color: #ffffff !important;
+    }
 </style>
 
 <footer class="main-footer">
@@ -183,7 +190,7 @@
         <div class="lower-box">
             {{-- <h1 class="big-title" style="background-image:url(images/background/footer.jpg)">Agencyo</h1> --}}
             {{-- <div class="copyright">Copyright &copy; 2025 Agencyo . All Rights Reserved.</div> --}}
-            <p class="copyright-text mb-0 text-white text-center">© {{date('Y')}} {{config('app.name')}} | All rights reserved. Design & Developed by <a href="https://ycstech.in" target="_blank" style="color: #90abff;">YCS TechSoft Pvt. Ltd.</a></p>
+            <p class="copyright-text mb-0 text-white text-center">© {{date('Y')}} {{config('app.name')}} | All rights reserved. Design & Developed by <a href="https://ycstech.in" target="_blank">YCS TechSoft Pvt. Ltd.</a></p>
         </div>
     </div>
 </footer>

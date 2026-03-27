@@ -26300,3 +26300,133 @@ Sidebar
         max-width: 1320px!important;
     }
 }
+
+/* ===== Global brand palette overrides ===== */
+:root {
+    --ad-primary: #0b73c0;
+    --ad-primary-dark: #073764;
+    --ad-accent: #3ec6ff;
+    --ad-navy: #071a33;
+    --ad-navy-2: #0a2548;
+    --ad-surface: #eef6ff;
+    --ad-surface-2: #f7fbff;
+    --ad-text: #0f2d4f;
+}
+
+body {
+    color: var(--ad-text);
+    background: linear-gradient(180deg, #ffffff 0%, var(--ad-surface) 55%, #ffffff 100%);
+}
+
+/* Header */
+.main-header .header-lower,
+.header-style-four .header-lower .main-box {
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid #d7e8fb;
+    box-shadow: 0 8px 24px rgba(4, 45, 93, 0.08);
+}
+
+.main-menu .navigation > li > a,
+.sticky-header .main-menu .navigation > li > a {
+    color: var(--ad-primary-dark) !important;
+}
+
+.main-menu .navigation > li.current > a,
+.main-menu .navigation > li > a:hover,
+.sticky-header .main-menu .navigation > li.current > a,
+.sticky-header .main-menu .navigation > li:hover > a {
+    color: var(--ad-primary) !important;
+}
+
+.main-menu .navigation > li > ul {
+    border: 1px solid #d8e9fb;
+    border-radius: 10px;
+    box-shadow: 0 14px 30px rgba(7, 55, 104, 0.14);
+}
+
+.main-menu .navigation > li > ul > li > a {
+    color: var(--ad-primary-dark);
+}
+
+.main-menu .navigation > li > ul > li:hover > a {
+    color: var(--ad-primary);
+    background: #f1f8ff;
+}
+
+.sticky-header {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #d7e8fb;
+}
+
+/* Footer */
+.main-footer {
+    background: linear-gradient(135deg, #071a33 0%, #0a2548 52%, #06172d 100%);
+    color: #d7e8fb;
+}
+
+.main-footer .footer-title {
+    color: #ffffff;
+}
+
+.main-footer .footer-text,
+.main-footer .info,
+.main-footer .copyright-text {
+    color: #cfe2f6;
+}
+
+.main-footer .footer-list li a,
+.main-footer a {
+    color: #d7e8fb;
+}
+
+.main-footer .footer-list li a:hover,
+.main-footer a:hover {
+    color: var(--ad-accent);
+}
+
+.main-footer .lower-box {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Homepage section color consistency */
+.hero-palette {
+    background: var(--ad-navy);
+}
+
+.capability-palette {
+    background: linear-gradient(180deg, var(--ad-navy) 0%, var(--ad-navy-2) 100%);
+}
+
+.about-two {
+    background: linear-gradient(180deg, var(--ad-surface-2) 0%, var(--ad-surface) 100%);
+}
+
+.choose-section.steps-one {
+    background: linear-gradient(180deg, #ffffff 0%, #f3f9ff 100%);
+}
+
+.case-studies-palette {
+    background: linear-gradient(180deg, #eaf4ff 0%, #f8fbff 100%);
+}
+
+.case-wrapper .case-card {
+    background: #0d2f57;
+    border-color: #d6e8fb;
+    box-shadow: 0 14px 32px rgba(7, 48, 93, 0.12);
+}
+
+.case-wrapper .case-card.active {
+    background: #ffffff;
+}
+
+.case-wrapper .case-details {
+    background: linear-gradient(180deg, #f8fcff 0%, #eaf4ff 100%);
+}
+
+.clientele-section {
+    background: linear-gradient(180deg, #ffffff 0%, var(--ad-surface) 100%);
+}
+
+.cta-section {
+    background: linear-gradient(180deg, var(--ad-surface) 0%, #f9fcff 100%);
+}

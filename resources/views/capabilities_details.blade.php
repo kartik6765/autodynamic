@@ -2,6 +2,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+            :root {
+                --cap-bg-top: #071a33;
+                --cap-bg-mid: #0b2d57;
+                --cap-bg-bottom: #0a2242;
+                --cap-primary: #0b73c0;
+                --cap-primary-light: #3ec6ff;
+                --cap-text-soft: rgba(229, 240, 255, 0.86);
+                --cap-card: rgba(9, 36, 68, 0.72);
+                --cap-border: rgba(170, 213, 244, 0.24);
+            }
+
             html,
             body {
                 overflow-x: hidden;
@@ -12,9 +24,18 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                padding: 50px 5%!important;
+                padding: 48px 5%!important;
                 position: relative;
                 overflow: hidden;
+                background:
+                    radial-gradient(circle at 82% 20%, rgba(62, 198, 255, 0.22), transparent 30%),
+                    radial-gradient(circle at 16% 82%, rgba(15, 119, 193, 0.18), transparent 34%),
+                    linear-gradient(180deg, var(--cap-bg-top) 0%, var(--cap-bg-mid) 45%, var(--cap-bg-bottom) 100%);
+                font-family: 'Inter', sans-serif;
+            }
+
+            .scroll-section * {
+                font-family: 'Inter', sans-serif;
             }
 
             .top-area {
@@ -26,23 +47,27 @@
 
             .animate-content {
                 width: 35%;
+                padding: 12px 0;
             }
 
             .animate-title {
-                font-size: 65px;
+                font-size: clamp(34px, 4.2vw, 54px);
                 font-weight: 700;
-                margin-bottom: 20px;
+                margin-bottom: 12px;
+                line-height: 1.08;
+                letter-spacing: -0.02em;
             }
 
             .animate-text {
-                font-size: 18px;
-                line-height: 1.7;
-                opacity: 0.9;
+                font-size: 16px;
+                line-height: 1.8;
+                color: var(--cap-text-soft);
             }
 
             .animate-image {
                 width: 45%;
                 text-align: center;
+                position: relative;
             }
 
             .animate-image img {
@@ -66,140 +91,80 @@
             .car-details {
                 width: 20%;
                 text-align: right;
+                position: relative;
+                padding-right: 10px;
+            }
+
+            .car-details::before {
+                content: "";
+                position: absolute;
+                right: -10px;
+                top: 5%;
+                width: 1px;
+                height: 90%;
+                background: linear-gradient(180deg, transparent, rgba(191, 232, 255, 0.4), transparent);
             }
 
             .part {
                 display: block;
-                margin: 30px 0;
-                font-size: 20px;
-                opacity: .6;
+                margin: 20px 0;
+                font-size: 17px;
+                opacity: .65;
                 cursor: pointer;
                 transition: .3s;
-                color: #fff;
+                color: #cde6fb;
+                letter-spacing: .2px;
+                padding: 6px 0;
             }
 
             .part.active {
                 opacity: 1;
-                font-weight: 700;
-                color: #dcf4ff;
-                font-size: 35px;
-                text-shadow: 2px 0px 5px rgba(79, 195, 247, .6);
-                line-height: 45px;
+                font-weight: 600;
+                color: #bfe8ff;
+                font-size: 27px;
+                text-shadow: 0 0 18px rgba(62, 198, 255, .5);
+                line-height: 1.3;
             }
 
             .button-group {
                 display: flex;
                 justify-content: space-between;
-                gap: 40px;
-                padding-top: 40px;
+                gap: 14px;
+                padding-top: 30px;
             }
 
             .vehicle-btn {
-                padding: 20px 75px 20px 75px;
-                background: transparent;
-                border: 1px solid rgba(255, 255, 255, .4);
-                border-radius: 10px;
+                padding: 16px 24px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(191, 232, 255, .3);
+                border-radius: 14px;
                 color: white;
                 cursor: pointer;
                 transition: .3s;
+                font-size: 14px;
+                min-width: 170px;
+                backdrop-filter: blur(4px);
+                line-height: 1.45;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                white-space: nowrap;
             }
 
             .vehicle-btn:hover {
-                background: #0b73c0;
-                border-color: #0b73c0;
+                background: linear-gradient(135deg, #0d7dcd, #1aa6ef);
+                border-color: #34b8ff;
+                transform: translateY(-2px);
             }
 
             .vehicle-btn.active {
-                background: #0b73c0;
-                border-color: #0b73c0;
+                background: linear-gradient(135deg, var(--cap-primary), #1492e2);
+                border-color: #1492e2;
                 font-weight: 700;
-                /* font-size: 18px; */
+                box-shadow: 0 12px 24px rgba(11, 115, 192, 0.34);
             }
 
-            .scroll-section::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: -50%;
-                width: 200%;
-                height: 100%;
-                background-image: repeating-linear-gradient(0deg,
-                        transparent,
-                        transparent 120px,
-                        rgba(255, 255, 255, .05) 121px,
-                        transparent 122px);
-                animation: speedHorizontal 8s linear infinite;
-                pointer-events: none;
-            }
-
-            .scroll-section::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: -50%;
-                width: 200%;
-                height: 100%;
-                background-image: repeating-linear-gradient(0deg,
-                        transparent,
-                        transparent 200px,
-                        rgba(255, 255, 255, .03) 201px,
-                        transparent 202px);
-                animation: speedHorizontal2 12s linear infinite;
-                pointer-events: none;
-            }
-
-            .scroll-section::before,
-            .scroll-section::after{
-                filter: blur(.3px);
-            }
-
-            @keyframes speedHorizontal {
-                0% {
-                    transform: translateX(0);
-                }
-
-                30% {
-                    transform: translateX(120px);
-                }
-
-                45% {
-                    transform: translateX(200px); 
-                }
-
-                60% {
-                    transform: translateX(240px);
-                }
-
-                80% {
-                    transform: translateX(280px);
-                }
-
-                100% {
-                    transform: translateX(300px);
-                }
-            }
-
-            @keyframes speedHorizontal2 {
-                0% {
-                    transform: translateX(0);
-                }
-
-                25% {
-                    transform: translateX(150px);
-                }
-
-                40% {
-                    transform: translateX(260px); 
-                }
-
-                70% {
-                    transform: translateX(380px);
-                }
-
-                100% {
-                    transform: translateX(500px);
-                }
-            }
 
             @media(max-width:992px) {
                 .top-area {
@@ -210,6 +175,7 @@
 
                 .animate-content {
                     width: 100%;
+                    padding: 8px 0;
                 }
 
                 .animate-image {
@@ -224,22 +190,33 @@
                     gap: 30px;
                 }
 
+                .car-details::before {
+                    display: none;
+                }
+
                 .part {
                     margin: 0;
                 }
 
                 .button-group {
                     flex-wrap: wrap;
-                    gap: 15px;
+                    gap: 10px;
                 }
 
                 .animate-title {
-                    font-size: 40px;
+                    font-size: 34px;
                 }
 
                 .scroll-section {
                     height: auto;
                     padding: 60px 5%;
+                }
+
+                .vehicle-btn {
+                    min-width: auto;
+                    width: calc(50% - 5px);
+                    padding: 13px 12px;
+                    font-size: 13px;
                 }
             }
 
@@ -254,57 +231,73 @@
                 /* overflow:hidden; */
             }
 
+            .image-wrapper::before {
+                content: "";
+                position: absolute;
+                width: min(540px, 85%);
+                height: min(540px, 85%);
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(62, 198, 255, 0.28) 0%, rgba(62, 198, 255, 0) 70%);
+                filter: blur(14px);
+                z-index: 0;
+            }
+
             .image-wrapper img{
                 width:100%;
                 max-width:700px;
                 height:auto;
                 transform:scale(1.2);
+                position: relative;
+                z-index: 1;
+                filter: drop-shadow(0 16px 32px rgba(3, 20, 39, 0.45));
             }
 
             .auto-badge{
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                background: rgba(255, 255, 255, 0.1);
-                color: rgba(255, 255, 255, 0.85);
-                padding: 1px 15px;
+                border: 1px solid rgba(191, 232, 255, 0.28);
+                background: rgba(255, 255, 255, 0.06);
+                color: #d8efff;
+                padding: 4px 12px;
                 border-radius: 50px;
-                font-size: 10px;
+                font-size: 11px;
                 letter-spacing: 1px;
-                font-weight: 500;
+                font-weight: 600;
+                text-transform: uppercase;
             }
 
             .btn-contact{
-                border:1px solid rgba(255,255,255,0.3);
-                padding:10px 24px;
-                border-radius:8px;
+                border:1px solid rgba(191, 232, 255, 0.3);
+                padding:10px 20px;
+                border-radius:10px;
                 color:#fff;
-                font-weight:500;
+                font-weight:600;
                 text-decoration:none;
                 transition:all .3s ease;
             }
 
             .btn-contact:hover{
-                background:rgba(255,255,255,0.1);
+                background:rgba(255, 255, 255, 0.1);
                 color:#fff;
+                transform: translateY(-2px);
             }
 
             .btn-accent{
-                background:#0b73c0;
+                background:linear-gradient(135deg, var(--cap-primary), #1492e2);
                 color:#fff;
-                padding:10px 24px;
-                border-radius:8px;
-                font-weight:500;
+                padding:10px 20px;
+                border-radius:10px;
+                font-weight:600;
                 text-decoration:none;
                 display:inline-flex;
                 align-items:center;
                 gap:8px;
-                box-shadow:0 8px 20px rgba(11,115,192,0.35);
+                box-shadow:0 12px 26px rgba(11,115,192,0.48);
                 transition:all .3s ease;
             }
 
             .btn-accent:hover{
-                background:#1590eb;
+                background:linear-gradient(135deg, #1a9aec, var(--cap-primary-light));
                 color:#fff;
-                box-shadow:0 10px 28px rgba(11,115,192,0.5);
+                box-shadow:0 12px 28px rgba(11,115,192,0.58);
             }
 
             .btn-accent svg{
@@ -316,7 +309,7 @@
             }
         </style>
   
-        <section class="scroll-section" style="background:linear-gradient( 180deg, #021c3c 0%, #052a55 40%, #0a3c74 70%, #021c3c 100% );">
+        <section class="scroll-section">
             <div class="top-area">
                 <div class="animate-content">
                     <span class="auto-badge mb-4 d-inline-block text-uppercase">
@@ -324,15 +317,7 @@
                     </span>
                     <h2 class="animate-title text-white" id="aboutTitle">Two Wheeler Solutions</h2>
                     <p class="animate-text text-white mb-4" id="aboutText1"> Lightweight composite parts engineered for performance motorcycles and scooters </p>
-                    <a href="#" class="btn-accent d-inline-flex align-items-center gap-2">
-                        Explore More
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m5 15 6-6-6-6"></path>
-                        </svg>
-                    </a>&nbsp;&nbsp;
-                    <a href="#" class="btn-contact d-inline-flex align-items-center gap-2">
-                        Contact Us
-                    </a>
+                    
                 </div>
                 <div class="animate-image">
                     <div class="image-wrapper">
@@ -353,7 +338,7 @@
                         <circle cx="15" cy="5" r="1"></circle>
                         <path d="M12 17.5V14l-3-3 4-3 2 3h2"></path>
                     </svg>
-                    <br> Two Wheeler </button>
+                    Two Wheeler </button>
                 <button class="vehicle-btn" onclick="selectVehicle(this,'3w')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
@@ -362,7 +347,7 @@
                         <circle cx="17" cy="18" r="2"></circle>
                         <circle cx="7" cy="18" r="2"></circle>
                     </svg>
-                    <br> Three Wheeler </button>
+                    Three Wheeler </button>
                 <button class="vehicle-btn" onclick="selectVehicle(this,'car')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
@@ -370,7 +355,7 @@
                         <path d="M9 17h6"></path>
                         <circle cx="17" cy="17" r="2"></circle>
                     </svg>
-                    <br> Passenger Vehicles </button>
+                    Passenger Vehicles </button>
                 <button class="vehicle-btn" onclick="selectVehicle(this,'4w')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M8 6v6"></path>
@@ -381,7 +366,7 @@
                         <path d="M9 18h5"></path>
                         <circle cx="16" cy="18" r="2"></circle>
                     </svg>
-                    <br> Commercial Vehicles </button>
+                    Commercial Vehicles </button>
                 
             </div>
         </section>
@@ -454,26 +439,13 @@
             }
             
             function selectVehicle(button, type) {
-                let trigger = ScrollTrigger.getAll()[0];
-                if (trigger) {
-                    gsap.fromTo(trigger, 
-                        { progress: trigger.progress }, 
-                        { 
-                            progress: 0, 
-                            duration: 0.8, 
-                            ease: "power2.inOut",
-                            onUpdate: () => {
-                                trigger.scroll(trigger.start + (trigger.end - trigger.start) * trigger.progress);
-                            }
-                        }
-                    );
-                }
                 document.querySelectorAll(".vehicle-btn").forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
                 currentVehicle = type;
                 let data = vehicleData[type];
                 document.getElementById("aboutTitle").innerText = data.title;
                 document.getElementById("aboutText1").innerText = data.text1;
+                currentStep = 0;
                 activatePart(0);
             }
 
@@ -493,23 +465,6 @@
                 el.addEventListener("click", function () {
                     currentStep = index;
                     activatePart(index);
-                    let trigger = ScrollTrigger.getAll()[0];
-                    if (trigger) {
-                        let targetProgress = index / 2; 
-
-                        gsap.to(trigger, {
-                            progress: targetProgress,
-                            duration: 0.6,
-                            ease: "power2.inOut",
-                            onUpdate: () => {
-                                trigger.scroll(
-                                    trigger.start +
-                                    (trigger.end - trigger.start) * trigger.progress
-                                );
-                            }
-                        });
-                    }
-
                 });
             });
         </script>   

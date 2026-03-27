@@ -3,7 +3,7 @@
 @endphp
 <style>
     a.active {
-        color: #02b4d7 !important;
+        color: #0b73c0 !important;
         text-decoration: none !important;
         font-weight: bold !important;
         display: inline-block; 
@@ -15,7 +15,7 @@
         width: 70%;
         overflow: hidden;
         white-space: nowrap;
-        background: #013A63;
+        background: linear-gradient(135deg, #073764, #0b73c0);
         color: #fff;
         font-weight: 600;
         position: relative;
@@ -88,6 +88,8 @@
                                 </li>
                             </ul>
                         </nav>
+                        <!-- Mobile Navigation Toggler -->
+                        <div class="mobile-nav-toggler"><span class="icon lnr-icon-bars"></span></div>
                     </div>
                     <!-- Main Menu End-->
 
