@@ -555,6 +555,91 @@
 			}
 		}
 
+	/* clientele marquee */
+		.clientele-section {
+			padding: 70px 0 40px;
+			background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+		}
+
+		.clientele-subtitle {
+			font-size: 13px;
+			letter-spacing: 1.4px;
+			text-transform: uppercase;
+			color: #0b73c0;
+			font-weight: 600;
+		}
+
+		.clientele-marquee {
+			position: relative;
+			overflow: hidden;
+			margin-top: 24px;
+			mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+			-webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+		}
+
+		.clientele-track {
+			display: flex;
+			width: max-content;
+			animation: clientScroll 28s linear infinite;
+		}
+
+		.clientele-marquee:hover .clientele-track {
+			animation-play-state: paused;
+		}
+
+		.clientele-item {
+			flex: 0 0 auto;
+			min-width: 180px;
+			height: 86px;
+			margin-right: 18px;
+			border: 1px solid #e7eef7;
+			border-radius: 14px;
+			background: #fff;
+			box-shadow: 0 10px 20px rgba(11, 115, 192, 0.08);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 12px 18px;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.clientele-item:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 14px 26px rgba(11, 115, 192, 0.14);
+		}
+
+		.client-logo {
+			font-size: 20px;
+			font-weight: 700;
+			color: #123b66;
+			letter-spacing: 0.4px;
+		}
+
+		@keyframes clientScroll {
+			from {
+				transform: translateX(0);
+			}
+			to {
+				transform: translateX(-50%);
+			}
+		}
+
+		@media (max-width: 767px) {
+			.clientele-section {
+				padding: 55px 0 25px;
+			}
+
+			.clientele-item {
+				min-width: 145px;
+				height: 76px;
+				margin-right: 12px;
+			}
+
+			.client-logo {
+				font-size: 16px;
+			}
+		}
+
 	</style>
 	@endsection('styles')
 
@@ -775,7 +860,7 @@
 			<div class="auto-container">
 				<div class="row">
 					<div class="col-lg-6">
-						<h3 class="mb-5 fw-medium text-auto">Case Studies</h3>
+						<h3 class="mb-5 fw-medium text-auto">Capabilities</h3>
 					</div>
 					<div class="col-lg-6 text-end">
 						<a href="#" class="news-link">KNOW MORE →</a>
@@ -827,250 +912,31 @@
 			</div>
 		</section>
 
-		<section class="project-three">
+		<section class="clientele-section">
 			<div class="auto-container">
-				<div class="row">
-					<div class="col-lg-6">
-						<h3 class="mb-5 fw-medium text-auto">Our Products</h3>
-					</div>
-					<div class="col-lg-6 text-end">
-						<a href="#" class="news-link">KNOW MORE →</a>
-					</div>
+				<div class="text-center">
+					<div class="clientele-subtitle mb-2">Our Clientele</div>
+					<h3 class="fw-medium text-auto mb-0">Trusted by Industry Leaders</h3>
 				</div>
-				<div class="project-three_inner-container">
-					<div class="project-block_three">
-						<div class="inner">
-							<div class="pattern" style="background-image: url(images/background/project-pattern.png)"></div>
-							<div class="content">
-								<div class="number">1 <sub>/3</sub>
-								</div>
-								<svg class="sofa-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sofa h-8 w-8" aria-hidden="true"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"></path><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"></path><path d="M4 18v2"></path><path d="M20 18v2"></path><path d="M12 4v9"></path></svg>
-								<h3 class="title">
-									<a href="#">Interior</a>
-								</h3>
-								<div class="text">Composite solutions for vehicle cabin structural components</div>
-								<a href="#" class="btn-accent d-inline-flex align-items-center gap-2">
-									Know More
-									<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="m5 15 6-6-6-6"></path>
-									</svg>
-								</a>
-							</div>
-							<div class="image" style="background-image: url('assets/images/product-interior.png')"></div>
-						</div>
-					</div>
-					<div class="project-block_three">
-						<div class="inner">
-							<div class="pattern" style="background-image: url(images/background/project-pattern.png)"></div>
-							<div class="content">
-								<div class="number">2 <sub>/3</sub>
-								</div>
-								<svg class="car-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff6" stroke-width="1">
-									<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
-									<circle class="wheel" cx="7" cy="17" r="2"></circle>
-									<path d="M9 17h6"></path>
-									<circle class="wheel" cx="17" cy="17" r="2"></circle>
-								</svg>
-								<h3 class="title">
-									<a href="#">Exterior</a>
-								</h3>
-								<div class="text">Lightweight structural components for vehicle exterior applications</div>
-								<a href="#" class="btn-accent d-inline-flex align-items-center gap-2">
-									Know More
-									<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="m5 15 6-6-6-6"></path>
-									</svg>
-								</a>
-							</div>
-							<div class="image" style="background-image: url('assets/images/product-exterior.png')"></div>
-						</div>
-					</div>
-					<div class="project-block_three">
-						<div class="inner">
-							<div class="pattern" style="background-image: url(images/background/project-pattern.png)"></div>
-							<div class="content">
-								<div class="number">3 <sub>/3</sub>
-								</div>
-								<svg class="gear-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M11 10.27 7 3.34"></path>
-									<path d="m11 13.73-4 6.93"></path>
-									<path d="M12 22v-2"></path>
-									<path d="M12 2v2"></path>
-									<path d="M14 12h8"></path>
-									<path d="m17 20.66-1-1.73"></path>
-									<path d="m17 3.34-1 1.73"></path>
-									<path d="M2 12h2"></path>
-									<path d="m20.66 17-1.73-1"></path>
-									<path d="m20.66 7-1.73 1"></path>
-									<path d="m3.34 17 1.73-1"></path>
-									<path d="m3.34 7 1.73 1"></path>
-									<circle cx="12" cy="12" r="2"></circle>
-									<circle cx="12" cy="12" r="8"></circle>
-								</svg>
-								<h3 class="title">
-									<a href="#">Under Bonnet</a>
-								</h3>
-								<div class="text">Engine bay and powertrain composite components for ICE and electric vehicles</div>
-								<a href="#" class="btn-accent d-inline-flex align-items-center gap-2">
-									Know More
-									<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="m5 15 6-6-6-6"></path>
-									</svg>
-								</a>
-							</div>
-							<div class="image" style="background-image: url('assets/images/product-bonnet.png')"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 
-		<section class="news-section style-two">
-			<div class="auto-container">
-				<div class="row">
-					<div class="col-lg-6">
-						<h3 class="mb-5 fw-medium text-auto">News</h3>
-					</div>
-					<div class="col-lg-6 text-end">
-						<a href="#" class="news-link">KNOW MORE →</a>
-					</div>
-				</div> 
-				<div class="news-item">
-					<div class="news-image logo-shape">
-						<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-					</div>
-					<div class="news-date"> 28 <br>Jan </div>
-					<div class="news-content">
-						<div class="news-title fw-semibold text-auto"> The Future of Automotive Technology </div>
-						<div class="news-desc"> The automotive industry is evolving rapidly as new technologies continue to reshape the way vehicles are designed, manufactured, and driven. </div>
-					</div>
-					<a href="#" class="news-link">KNOW MORE →</a>
-				</div>
-				<div class="news-item">
-					<div class="news-image logo-shape">
-						<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-					</div>
-					<div class="news-date"> 28 <br>Jan </div>
-					<div class="news-content">
-						<div class="news-title fw-semibold text-auto"> The Future of Automotive Technology </div>
-						<div class="news-desc"> The automotive industry is evolving rapidly as new technologies continue to reshape the way vehicles are designed, manufactured, and driven. </div>
-					</div>
-					<a href="#" class="news-link">KNOW MORE →</a>
-				</div>
-				<div class="news-item">
-					<div class="news-image logo-shape">
-						<img src="https://images.unsplash.com/photo-1560439514-4e9645039924">
-					</div>
-					<div class="news-date"> 22 <br>Feb </div>
-					<div class="news-content">
-						<div class="news-title fw-semibold text-auto"> Importance of Vehicle Maintenance </div>
-						<div class="news-desc"> Regular vehicle maintenance is essential for ensuring the safety, performance, and longevity of your vehicle. </div>
-					</div>
-					<a href="#" class="news-link">KNOW MORE →</a>
-				</div>
-			</div>
-		</section>
-
-		<section class="news-section style-three">
-			<div class="auto-container">
-				<div class="row">
-					<div class="col-lg-6">
-						<h3 class="mb-5 fw-medium text-auto">Blogs</h3>
-					</div>
-					<div class="col-lg-6 text-end">
-						<a href="#" class="news-link">READ MORE ARTICLE →</a>
-					</div>
-				</div> 
-				<div class="row clearfix">
-					<div class="column col-lg-4 col-md-6 col-sm-12">
-						<div class="news-block_one style-two">
-							<div class="inner wow fadeInUp" data-wow-delay="150ms">
-								<div class="image">
-									<a href="#">
-										<img src="{{ asset('assets/images/FutureAutomotive.png') }}" alt="" />
-									</a>
-									<div class="date">08 <span>March</span>
-									</div>
-								</div>
-								<div class="content">
-									<ul class="meta">
-										<li>Technology</li>
-										<li>Post By <i>Engineering Team</i>
-										</li>
-									</ul>
-									<h4 class="fw-medium mb-4 text-auto">
-										<a href="#">The Future of Automotive Lightweighting</a>
-									</h4>
-									<div class="text">Explore how injection molded composites are transforming the automotive industry, achieving 20-52% weight reduction while...</div>
-									<a href="#" class="btn-accent d-inline-flex align-items-center gap-2">
-										Read Article
-										<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-											<path d="m5 15 6-6-6-6"></path>
-										</svg>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column col-lg-4 col-md-6 col-sm-12">
-						<div class="news-block_one style-two">
-							<div class="inner wow fadeInUp" data-wow-delay="300ms">
-								<div class="image">
-									<a href="#">
-										<img src="{{ asset('assets/images/PlasticsConversion.png') }}" alt="" />
-									</a>
-									<div class="date">23 <span>March</span>
-									</div>
-								</div>
-								<div class="content">
-									<ul class="meta">
-										<li>Industry Insights</li>
-										<li>Post By <i>R&D Team</i>
-										</li>
-									</ul>
-									<h4 class="fw-medium mb-4 text-auto">
-										<a href="#">Metal to Plastics Conversion: A Strategic Guide for OEMs</a>
-									</h4>
-									<div class="text">Understanding the benefits, challenges, and process of converting traditional metal automotive components to advanced...</div>
-									<a href="#" class="btn-accent d-inline-flex align-items-center gap-2">
-										Read Article
-										<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-											<path d="m5 15 6-6-6-6"></path>
-										</svg>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column col-lg-4 col-md-6 col-sm-12">
-						<div class="news-block_one style-two">
-							<div class="inner wow fadeInUp" data-wow-delay="450ms">
-								<div class="image">
-									<a href="#">
-										<img src="{{ asset('assets/images/NABLQualityLab.png') }}" alt="" />
-									</a>
-									<div class="date">15 <span>March</span>
-									</div>
-								</div>
-								<div class="content">
-									<ul class="meta">
-										<li>Quality</li>
-										<li>Post By <i>Quality Team</i>
-										</li>
-									</ul>
-									<h4 class="fw-medium mb-4 text-auto">
-										<a href="#">Inside Our NABL-Accredited Quality Lab</a>
-									</h4>
-									<div class="text">A behind-the-scenes look at how our laboratory ensures every product meets the highest quality and safety standards before delivery...</div>
-									<a href="#" class="btn-accent d-inline-flex align-items-center gap-2">
-										Read Article
-										<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-											<path d="m5 15 6-6-6-6"></path>
-										</svg>
-									</a>
-								</div>
-							</div>
-						</div>
+				<div class="clientele-marquee">
+					<div class="clientele-track">
+						<div class="clientele-item"><span class="client-logo">AUTOX</span></div>
+						<div class="clientele-item"><span class="client-logo">DRIVON</span></div>
+						<div class="clientele-item"><span class="client-logo">NEXWHEEL</span></div>
+						<div class="clientele-item"><span class="client-logo">VOLTRO</span></div>
+						<div class="clientele-item"><span class="client-logo">MOTIONIX</span></div>
+						<div class="clientele-item"><span class="client-logo">GEARLAB</span></div>
+						<div class="clientele-item"><span class="client-logo">RAPIDCAR</span></div>
+						<div class="clientele-item"><span class="client-logo">EVTRON</span></div>
+						<div class="clientele-item"><span class="client-logo">AUTOX</span></div>
+						<div class="clientele-item"><span class="client-logo">DRIVON</span></div>
+						<div class="clientele-item"><span class="client-logo">NEXWHEEL</span></div>
+						<div class="clientele-item"><span class="client-logo">VOLTRO</span></div>
+						<div class="clientele-item"><span class="client-logo">MOTIONIX</span></div>
+						<div class="clientele-item"><span class="client-logo">GEARLAB</span></div>
+						<div class="clientele-item"><span class="client-logo">RAPIDCAR</span></div>
+						<div class="clientele-item"><span class="client-logo">EVTRON</span></div>
 					</div>
 				</div>
 			</div>
